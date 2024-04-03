@@ -1,0 +1,33 @@
+import 'package:flutter/material.dart';
+import 'user.dart';
+import 'atividade.dart';
+
+class Menu extends StatelessWidget {
+  const Menu({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Drawer(
+      child: ListView(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: Text("Criar usuário"),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => User()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.pending_actions),
+              title: Text("Criar atividade"),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => atividade()));
+              },
+            ),
+          ],
+      ),
+    );
+  }
+}
