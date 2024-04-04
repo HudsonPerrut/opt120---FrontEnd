@@ -82,7 +82,7 @@ class atividade extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
                       TextButton(
-                          onPressed: () {}, child: const Text("Criar usuário"))
+                          onPressed: () {}, child: const Text("Criar Atividade"))
                     ],
                   ),
                 ),

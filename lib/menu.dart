@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'entrega.dart';
 import 'user.dart';
 import 'atividade.dart';
 
@@ -24,6 +25,14 @@ class Menu extends StatelessWidget {
               onTap: (){
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => atividade()));
+              },
+            ),
+              ListTile(
+              leading: const Icon(Icons.pending_actions),
+              title: Text("Criar Entrega"),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Entrega()));
               },
             ),
           ],
