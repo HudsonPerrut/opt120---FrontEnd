@@ -1,11 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/entrega_model.dart';
 import 'package:flutter_application_1/service/http.dart';
 import 'package:flutter_application_1/entrega_list.dart';
 
 import 'menu.dart';
 
-class Entrega extends StatelessWidget {
-  const Entrega ({super.key});
+class EntregaUpdate extends StatefulWidget {
+  final EntregaModel data;
+  const EntregaUpdate( {super.key, required this.data});
+  @override
+  State<EntregaUpdate> createState() => _EntregaUpdateState();
+}
+
+  TextEditingController usuario_id = TextEditingController();
+  TextEditingController atividade_id = TextEditingController();
+  TextEditingController nota = TextEditingController();
+  TextEditingController entrega = TextEditingController();
+
+
+class _EntregaUpdateState extends State<EntregaUpdate> {
+  @override
+  void initState(){
+    super.initState();
+    usuario_id.text = widget.data.usuario_id.toString();
+    atividade_id.text = widget.data.atividade_id.toString();
+    nota.text = widget.data.nota.toString();
+    entrega.text = widget.data.entrega.toString();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +135,7 @@ class Entrega extends StatelessWidget {
                                 "nota": nota.text,
                                 "entrega": entrega.text
                               };
-                              Http.postEntrega(data);
+                              Http.updateEntrega(widget.data.usuario_id, widget.data.atividade_id, data);
                               Navigator.push(context, MaterialPageRoute(builder: (context) => EntregaList()));
 
                             }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/atv_list.dart';
+import 'package:flutter_application_1/entrega_list.dart';
 import 'package:flutter_application_1/user_list.dart';
 import 'entrega.dart';
 import 'user.dart';
@@ -42,6 +44,22 @@ class Menu extends StatelessWidget {
               onTap: (){
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const userList()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.pending_actions),
+              title: Text("Atividades"),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const atvList()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.pending_actions),
+              title: Text("Entregas"),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const EntregaList()));
               },
             ),
             
