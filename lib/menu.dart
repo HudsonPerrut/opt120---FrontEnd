@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/user_list.dart';
 import 'entrega.dart';
 import 'user.dart';
 import 'atividade.dart';
@@ -35,6 +36,15 @@ class Menu extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => Entrega()));
               },
             ),
+              ListTile(
+              leading: const Icon(Icons.pending_actions),
+              title: Text("Usuarios"),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const userList()));
+              },
+            ),
+            
           ],
       ),
     );

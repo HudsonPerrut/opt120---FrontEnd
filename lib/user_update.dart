@@ -1,15 +1,17 @@
 //import 'dart:html';
 
 import 'package:flutter/material.dart';
-//import 'package:flutter_application_1/models/user_model.dart';
+import 'package:flutter_application_1/models/user_model.dart';
 import 'package:flutter_application_1/service/http.dart';
+//import 'package:flutter_application_1/user.dart';
 import 'package:flutter_application_1/user_list.dart';
 import 'menu.dart';
 
-class User extends StatefulWidget {
-  const User( {super.key});
+class UserUpdate extends StatefulWidget {
+  final UserModel data;
+  const UserUpdate( {super.key, required this.data});
   @override
-  State<User> createState() => _UserState();
+  State<UserUpdate> createState() => _UserUpdateState();
 }
 
 TextEditingController id = TextEditingController();
@@ -20,17 +22,25 @@ bool isEdit = false;
 
 
 
-class _UserState extends State<User> {
+class _UserUpdateState extends State<UserUpdate> {
   bool _isobscure = true;
 
   @override
+  void initState(){
+    super.initState();
+    id.text = widget.data.id.toString();
+    nome.text = widget.data.nome.toString();
+    email.text = widget.data.email.toString();
+    senha.text = widget.data.senha.toString();
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Menu(),
       appBar: AppBar(
-        title: const Text(" Novo Usuário"),
+        title: const Text(" Atualizar Usuário"),
       ),
       body: Container(
         color: Color.fromARGB(255, 49, 184, 154),
@@ -127,7 +137,7 @@ class _UserState extends State<User> {
                             "email": email.text,
                             "senha": senha.text
                           };
-                          Http.postUser(data);
+                          Http.updateUser(widget.data.id, data);
                           Navigator.push(context, MaterialPageRoute(builder: (context) => userList()));
 
                         }

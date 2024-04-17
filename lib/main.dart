@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter_application_1/models/user_model.dart';
 import 'user.dart';
 
 
@@ -20,10 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 49, 184, 154)),
         useMaterial3: true,
       ),
-
       home: const User(),
     );
   }
 }
-
-
